@@ -14,7 +14,7 @@ public class BowlingGameTest
     @Test
     public void SimpleFrameScore()
     {
-        Frame frame = new Frame(4,5);
+        Frame frame = new NormalFrame(4,5);
         assertEquals(9,frame.getScore());
     }
 
@@ -28,7 +28,6 @@ public class BowlingGameTest
     @Test
     public void ThrowAllFramesOnes()
     {
-
         RollBalls(1, 0);
         assertEquals(10, g.getScore());
     }
@@ -37,9 +36,17 @@ public class BowlingGameTest
     {
         for (int i = 0; i < 10; ++i)
         {
-            Frame frame = new Frame(firstThrow, secondThrow);
+            Frame frame = new NormalFrame(firstThrow, secondThrow);
             g.addFrame(frame);
         }
+    }
+
+    @Test
+    public void ThrowASpare()
+    {
+        Spare frame = new Spare();
+        g.addFrame(frame);
+        assertEquals(10, g.getScore());
     }
 
     private BowlingGame g;
