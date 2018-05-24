@@ -7,13 +7,7 @@ public class Strike implements Frame
     }
 
     @Override
-    public int spareBonus()
-    {
-        return 10;
-    }
-
-    @Override
-    public int strikeBonus()
+    public int getFirstScore()
     {
         return 10;
     }

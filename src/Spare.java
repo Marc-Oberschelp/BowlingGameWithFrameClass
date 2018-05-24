@@ -1,5 +1,10 @@
 class Spare implements Frame
 {
+    Spare(int firstThrow)
+    {
+        m_firstThrow = firstThrow;
+    }
+
     @Override
     public int getScore()
     {
@@ -7,14 +12,10 @@ class Spare implements Frame
     }
 
     @Override
-    public int spareBonus()
+    public int getFirstScore()
     {
-        return 10;
+        return m_firstThrow;
     }
 
-    @Override
-    public int strikeBonus()
-    {
-        return 10;
-    }
+    private int m_firstThrow;
 }

@@ -13,15 +13,9 @@ class NormalFrame implements Frame
     }
 
     @Override
-    public int spareBonus()
+    public int getFirstScore()
     {
         return m_firstThrow;
-    }
-
-    @Override
-    public int strikeBonus()
-    {
-        return getScore();
     }
 
     private int m_firstThrow;
