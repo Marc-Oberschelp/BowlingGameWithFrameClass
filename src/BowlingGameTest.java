@@ -45,8 +45,7 @@ public class BowlingGameTest
     @Test
     public void ThrowASpare()
     {
-        Spare frame = new Spare();
-        g.addFrame(frame);
+        g.addFrame(new Spare());
         RollBalls(9,0,0);
         assertEquals(10, g.getScore());
     }
@@ -68,6 +67,14 @@ public class BowlingGameTest
             g.addFrame(new Spare());
         }
         assertEquals(200, g.getScore());
+    }
+
+    @Test
+    public void ThrowAStrike()
+    {
+        g.addFrame(new Strike());
+        RollBalls(9,0,0);
+        assertEquals(10, g.getScore());
     }
 
     private BowlingGame g;
