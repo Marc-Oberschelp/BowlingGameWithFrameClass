@@ -22,20 +22,20 @@ public class BowlingGameTest
     @Test
     public void ThrowAllZeros()
     {
-        RollBalls(0, 0);
+        RollBalls(10,0, 0);
         assertEquals(0, g.getScore());
     }
 
     @Test
     public void ThrowAllFramesOnes()
     {
-        RollBalls(1, 0);
+        RollBalls(10,1, 0);
         assertEquals(10, g.getScore());
     }
 
-    private void RollBalls(int firstThrow, int secondThrow)
+    private void RollBalls(int frameCount, int firstThrow, int secondThrow)
     {
-        for (int i = 0; i < 10; ++i)
+        for (int i = 0; i < frameCount; ++i)
         {
             Frame frame = new NormalFrame(firstThrow, secondThrow);
             g.addFrame(frame);
@@ -47,6 +47,7 @@ public class BowlingGameTest
     {
         Spare frame = new Spare();
         g.addFrame(frame);
+        RollBalls(9,0,0);
         assertEquals(10, g.getScore());
     }
 
@@ -55,7 +56,18 @@ public class BowlingGameTest
     {
         g.addFrame(new Spare());
         g.addFrame(new NormalFrame(8,0));
-        assertEquals(26,g.getScore());
+        RollBalls(8,0,0);
+        assertEquals(26, g.getScore());
+    }
+
+    @Test
+    public void ThrowAPerfectSpareGame()
+    {
+        for (int i = 0; i<11;++i)
+        {
+            g.addFrame(new Spare());
+        }
+        assertEquals(200, g.getScore());
     }
 
     private BowlingGame g;

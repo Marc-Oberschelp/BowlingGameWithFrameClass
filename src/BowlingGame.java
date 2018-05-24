@@ -12,7 +12,7 @@ class BowlingGame
     int getScore()
     {
         int score = 0;
-        for( int currentFrame = 0; currentFrame < frames.size(); ++currentFrame)
+        for( int currentFrame = 0; currentFrame < 10; ++currentFrame)
         {
             Frame frame = frames.get(currentFrame);
             if(frame instanceof Spare)
