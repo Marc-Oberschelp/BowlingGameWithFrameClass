@@ -11,4 +11,10 @@ public class Strike implements Frame
     {
         return 10;
     }
+
+    @Override
+    public int strikeBonus()
+    {
+        return 10;
+    }
 }

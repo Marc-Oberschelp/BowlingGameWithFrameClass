@@ -15,17 +15,29 @@ class BowlingGame
         for( int currentFrame = 0; currentFrame < 10; ++currentFrame)
         {
             Frame frame = frames.get(currentFrame);
-            if(frame instanceof Spare)
+            if(isSpare(frame) && nextFrameInRange(currentFrame + 1))
             {
-                if (nextFrameInRange(currentFrame + 1))
-                {
-                    Frame nextFrame = frames.get(currentFrame + 1);
-                    score += nextFrame.spareBonus();
-                }
+                Frame nextFrame = frames.get(currentFrame + 1);
+                score += nextFrame.spareBonus();
+            }
+            if(isStrike(frame) && nextFrameInRange(currentFrame + 1))
+            {
+                Frame nextFrame = frames.get(currentFrame + 1);
+                score += nextFrame.strikeBonus();
             }
             score += frame.getScore();
         }
         return score;
+    }
+
+    private boolean isSpare(Frame frame)
+    {
+        return frame instanceof Spare;
+    }
+
+    private boolean isStrike(Frame frame)
+    {
+        return frame instanceof Strike;
     }
 
     private boolean nextFrameInRange(int frameIndex)

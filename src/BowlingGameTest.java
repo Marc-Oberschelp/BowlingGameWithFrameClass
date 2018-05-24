@@ -77,5 +77,14 @@ public class BowlingGameTest
         assertEquals(10, g.getScore());
     }
 
+    @Test
+    public void ThrowASimpleFrameAfterAStrike()
+    {
+        g.addFrame(new Strike());
+        g.addFrame(new NormalFrame(8,1));
+        RollBalls(8,0,0);
+        assertEquals(28, g.getScore());
+    }
+
     private BowlingGame g;
 }
