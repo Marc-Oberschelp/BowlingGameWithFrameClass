@@ -1,4 +1,5 @@
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
@@ -47,6 +48,14 @@ public class BowlingGameTest
         Spare frame = new Spare();
         g.addFrame(frame);
         assertEquals(10, g.getScore());
+    }
+
+    @Test
+    public void ThrowASimpleFrameAfterASpare()
+    {
+        g.addFrame(new Spare());
+        g.addFrame(new NormalFrame(8,0));
+        assertEquals(26,g.getScore());
     }
 
     private BowlingGame g;

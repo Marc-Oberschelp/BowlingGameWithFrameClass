@@ -5,4 +5,10 @@ class Spare implements Frame
     {
         return 10;
     }
+
+    @Override
+    public int spareBonus()
+    {
+        return 10;
+    }
 }
