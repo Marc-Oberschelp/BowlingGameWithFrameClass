@@ -22,14 +22,14 @@ public class BowlingGameTest
     public void ThrowAllZeros()
     {
         RollBalls(10,0, 0);
-        assertEquals(0, g.getFirstScoreOfFrame());
+        assertEquals(0, g.getScore());
     }
 
     @Test
     public void ThrowAllFramesOnes()
     {
         RollBalls(10,1, 0);
-        assertEquals(10, g.getFirstScoreOfFrame());
+        assertEquals(10, g.getScore());
     }
 
     private void RollBalls(int frameCount, int firstThrow, int secondThrow)
@@ -46,7 +46,7 @@ public class BowlingGameTest
     {
         g.addFrame(new Spare(5));
         RollBalls(9,0,0);
-        assertEquals(10, g.getFirstScoreOfFrame());
+        assertEquals(10, g.getScore());
     }
 
     @Test
@@ -55,7 +55,7 @@ public class BowlingGameTest
         g.addFrame(new Spare(5));
         g.addFrame(new NormalFrame(8,0));
         RollBalls(8,0,0);
-        assertEquals(26, g.getFirstScoreOfFrame());
+        assertEquals(26, g.getScore());
     }
 
     @Test
@@ -65,7 +65,7 @@ public class BowlingGameTest
         {
             g.addFrame(new Spare(5));
         }
-        assertEquals(150, g.getFirstScoreOfFrame());
+        assertEquals(150, g.getScore());
     }
 
     @Test
@@ -73,7 +73,7 @@ public class BowlingGameTest
     {
         g.addFrame(new Strike());
         RollBalls(9,0,0);
-        assertEquals(10, g.getFirstScoreOfFrame());
+        assertEquals(10, g.getScore());
     }
 
     @Test
@@ -82,7 +82,7 @@ public class BowlingGameTest
         g.addFrame(new Strike());
         g.addFrame(new NormalFrame(8,1));
         RollBalls(8,0,0);
-        assertEquals(28, g.getFirstScoreOfFrame());
+        assertEquals(28, g.getScore());
     }
 
     @Test
@@ -92,7 +92,7 @@ public class BowlingGameTest
         {
             g.addFrame(new Strike());
         }
-        assertEquals(300, g.getFirstScoreOfFrame());
+        assertEquals(300, g.getScore());
     }
 
     @Test
@@ -102,7 +102,7 @@ public class BowlingGameTest
         g.addFrame(new Strike());
         g.addFrame(new NormalFrame(4,0));
         RollBalls(7,0,0);
-        assertEquals(42,g.getFirstScoreOfFrame());
+        assertEquals(42,g.getScore());
     }
 
     private BowlingGame g;

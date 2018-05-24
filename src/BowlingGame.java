@@ -9,7 +9,7 @@ class BowlingGame
        frames.add(frame);
     }
 
-    int getFirstScoreOfFrame()
+    int getScore()
     {
         int score = 0;
         for( int currentFrame = 0; currentFrame < 10; ++currentFrame)
